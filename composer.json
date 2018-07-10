@@ -1,8 +1,8 @@
 {
-    "name": "phpoffice/phpspreadsheet",
+    "name": "so53ltd/phpspreadsheet",
     "description": "PHPSpreadsheet - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
     "keywords": ["PHP", "OpenXML", "Excel", "xlsx", "xls", "ods", "gnumeric", "spreadsheet"],
-    "homepage": "https://github.com/PHPOffice/PhpSpreadsheet",
+    "homepage": "https://github.com/so53ltd/PhpSpreadsheet",
     "type": "library",
     "license": "LGPL-2.1-or-later",
     "authors": [
