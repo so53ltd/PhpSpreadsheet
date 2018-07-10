@@ -5,6 +5,7 @@ namespace PhpOffice\PhpSpreadsheetTests\Collection;
 use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use PhpOffice\PhpSpreadsheet\Collection\Cells;
 use PhpOffice\PhpSpreadsheet\Collection\Memory;
+use PhpOffice\PhpSpreadsheet\Settings;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use PHPUnit\Framework\TestCase;
@@ -109,7 +110,9 @@ class CellsTest extends TestCase
         $cache->method('set')
             ->willReturn(false);
 
-        $collection = new Cells(new Worksheet(), $cache);
+        $cellsFqcn = Settings::getCustomClassName(Cells::class);
+
+        $collection = new $cellsFqcn(new Worksheet(), $cache);
 
         $collection->add('A1', $cell);
         $collection->add('A2', $cell);
