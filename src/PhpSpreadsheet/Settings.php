@@ -32,6 +32,13 @@ class Settings
     private static $cache;
 
     /**
+     * This will allow to provide custom FQCN for the project
+     *
+     * @var string[]
+     */
+    private static $customFqcn = [];
+
+    /**
      * Set the locale code to use for formula translations and any special formatting.
      *
      * @param string $locale The locale code to use (e.g. "fr" or "pt_br" or "en_uk")
@@ -123,5 +130,30 @@ class Settings
         }
 
         return self::$cache;
+    }
+
+    /**
+     * Allow to overwrite default class names using their original names
+     *
+     * @param string $originalFqcn
+     * @param string $newFqcn
+     */
+    public static function setCustomClassName($originalFqcn, $newFqcn)
+    {
+        self::$customFqcn[$originalFqcn] = $newFqcn;
+    }
+
+    /**
+     * Get custom class name if such was provided
+     *
+     * Otherwise we're going to return original (from argument) class name.
+     *
+     * @param string $fqcn
+     *
+     * @return string
+     */
+    public static function getCustomClassName($fqcn)
+    {
+        return isset(self::$customFqcn[$fqcn]) ? self::$customFqcn[$fqcn] : $fqcn;
     }
 }
