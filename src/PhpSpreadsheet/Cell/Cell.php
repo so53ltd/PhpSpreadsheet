@@ -695,4 +695,12 @@ class Cell
     {
         return (string) $this->getValue();
     }
+
+    /**
+     * Make sure we're serializing only detached elements (e.g. don't serialize partner field)
+     */
+    public function __sleep()
+    {
+        $this->detach();
+    }
 }
