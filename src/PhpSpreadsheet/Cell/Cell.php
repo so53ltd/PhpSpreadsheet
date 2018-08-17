@@ -697,10 +697,12 @@ class Cell
     }
 
     /**
-     * Make sure we're serializing only detached elements (e.g. don't serialize partner field)
+     * Detach parent just before serializing object
      */
     public function __sleep()
     {
         $this->detach();
+
+        return array_keys(get_object_vars($this));
     }
 }
